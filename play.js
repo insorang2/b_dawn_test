@@ -1,5 +1,6 @@
 document.getElementById("forPuzzle").innerHTML = `
 <img
+    id="puzzleImage"
     src="images/puzzle.png"
     style="
         width:90%;
@@ -8,3 +9,7 @@ document.getElementById("forPuzzle").innerHTML = `
     "
 >
 `;
+
+document.getElementById("hintBtn").onclick = function() {
+    alert("힌트 버튼 성공!");
+};
