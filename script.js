@@ -111,7 +111,7 @@ document.getElementById("app").innerHTML = ` <div style="position:relative; widt
   </button>
 
   <button
-    onclick="window.open('https://youtu.be/x8EEqEXjmxc?si=tVZYL3zmOaUmf6WK', '_blank')"
+    onclick="location.href='puzzle.html'"
     style="
       position:absolute;
       right:3%;
