@@ -3,6 +3,8 @@ const piecesDiv = document.getElementById("pieces");
 const image = new Image();
 image.src = "images/puzzle.png";
 
+let completedPieces = 0;
+
 let draggedPiece = null;
 let offsetX = 0;
 let offsetY = 0;
@@ -138,7 +140,7 @@ document.addEventListener("mouseup", function(){
     const distanceY =
         Math.abs(currentY - targetY);
 
-    if(distanceX < 30 && distanceY < 30){
+    if(distanceX < 13 && distanceY < 13){
 
         draggedPiece.style.position =
             "absolute";
@@ -154,6 +156,14 @@ document.addEventListener("mouseup", function(){
 
         draggedPiece.dataset.locked =
             "true";
+
+            completedPieces++;
+
+if(completedPieces === 100){
+
+    alert("🎉 퍼즐 완성!");
+
+}
     }
 }
 
