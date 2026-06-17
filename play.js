@@ -125,18 +125,18 @@ document.addEventListener("mouseup", function(){
         parseInt(draggedPiece.dataset.correctY);
 
     const targetX =
-    board.offsetLeft +
+    boardRect.left + window.scrollX +
     correctX * pieceWidth;
 
 const targetY =
-    board.offsetTop +
+    boardRect.top + window.scrollY +
     correctY * pieceHeight;
 
     const currentX =
-        pieceRect.left;
+    pieceRect.left + window.scrollX;
 
-    const currentY =
-        pieceRect.top;
+const currentY =
+    pieceRect.top + window.scrollY;
 
     const distanceX =
         Math.abs(currentX - targetX);
