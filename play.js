@@ -7,14 +7,6 @@ image.src = "images/puzzle.png";
 
 image.onload = function(){
 
-    ctx.drawImage(
-        image,
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
     createPieces();
 };
 
