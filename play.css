@@ -27,6 +27,6 @@ gap:2px;
 }
 
 .piece{
-border:1px solid #888;
-box-sizing:border-box;
+    border:2px solid red;
+    box-sizing:border-box;
 }
