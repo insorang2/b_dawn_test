@@ -140,7 +140,7 @@ document.addEventListener("mouseup", function(){
     const distanceY =
         Math.abs(currentY - targetY);
 
-    if(distanceX < 15 && distanceY < 15){
+    if(distanceX < 17 && distanceY < 17){
 
         draggedPiece.style.position =
             "absolute";
@@ -159,7 +159,7 @@ document.addEventListener("mouseup", function(){
 
             completedPieces++;
 
-if(completedPieces === 1){
+if(completedPieces === 100){
 
     alert("🎉 퍼즐 완성!");
 
