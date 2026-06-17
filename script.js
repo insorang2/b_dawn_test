@@ -102,7 +102,7 @@ resultMember = member;
 }
 
 document.getElementById("app").innerHTML = ` <div style="position:relative; width:100%;"> <img
-     src="images/${resultMember}.png"
+     src="${resultMember}.png"
      alt="결과 이미지"
      style="width:100%; display:block;"
    >
@@ -146,7 +146,7 @@ function renderQuestion() {
 
 if (currentQuestion === -1) {
 document.getElementById("app").innerHTML = ` <div style="position:relative; width:100%;"> <img
-       src="images/home.png"
+       src="home.png"
        alt="홈"
        style="width:100%; display:block;"
      >
@@ -174,7 +174,7 @@ return;
 const question = questions[currentQuestion];
 
 document.getElementById("app").innerHTML = ` <div style="position:relative; width:100%;"> <img
-     src="${question.image}"
+     src="images/${question.image}"
      alt="질문"
      style="width:100%; display:block;"
    >
