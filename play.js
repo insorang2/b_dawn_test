@@ -26,6 +26,12 @@ image.onload = function () {
             piece.dataset.correctX = x;
             piece.dataset.correctY = y;
 
+            piece.dataset.snapX =
+            x * pieceWidth;
+
+            piece.dataset.snapY =
+            y * pieceHeight;
+
             const pctx =
                 piece.getContext("2d");
 
@@ -91,10 +97,21 @@ document.addEventListener("mouseup", function(){
 
     if(insideBoard){
 
-        draggedPiece.style.border =
-            "2px solid lime";
+    draggedPiece.style.border =
+        "2px solid lime";
 
-    }
+    draggedPiece.style.left =
+        boardRect.left +
+        parseInt(
+            draggedPiece.dataset.snapX
+        ) + "px";
+
+    draggedPiece.style.top =
+        boardRect.top +
+        parseInt(
+            draggedPiece.dataset.snapY
+        ) + "px";
+}
 
     draggedPiece = null;
 
