@@ -17,3 +17,17 @@
     color:white;
     cursor:pointer;
 }
+
+#pieces{
+    width:900px;
+    max-width:95%;
+    margin:30px auto;
+    display:flex;
+    flex-wrap:wrap;
+    gap:2px;
+    justify-content:center;
+}
+
+.piece{
+    border:1px solid #ccc;
+}
