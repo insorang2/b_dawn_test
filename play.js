@@ -125,11 +125,11 @@ document.addEventListener("mouseup", function(){
         parseInt(draggedPiece.dataset.correctY);
 
     const targetX =
-    boardRect.left +
+    board.offsetLeft +
     correctX * pieceWidth;
 
 const targetY =
-    boardRect.top +
+    board.offsetTop +
     correctY * pieceHeight;
 
     const currentX =
