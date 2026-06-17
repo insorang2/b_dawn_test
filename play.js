@@ -11,10 +11,6 @@ let offsetY = 0;
 
 image.onload = function () {
 
-    alert(
-    image.width + " x " + image.height
-);
-
     const rows = 10;
     const cols = 10;
 
@@ -144,7 +140,7 @@ const currentY =
     const distanceY =
         Math.abs(currentY - targetY);
 
-    if(distanceX < 25 && distanceY < 25){
+    if(distanceX < 100 && distanceY < 100){
 
         draggedPiece.style.position =
             "absolute";
