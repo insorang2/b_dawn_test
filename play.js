@@ -142,20 +142,22 @@ const currentY =
 
     if(distanceX < 25 && distanceY < 25){
 
-        draggedPiece.style.position =
-            "absolute";
+    board.appendChild(draggedPiece);
 
-        draggedPiece.style.left =
-            targetX + "px";
+    draggedPiece.style.position =
+        "absolute";
 
-        draggedPiece.style.top =
-            targetY + "px";
+    draggedPiece.style.left =
+        (correctX * pieceWidth) + "px";
 
-        draggedPiece.style.border =
-            "2px solid lime";
+    draggedPiece.style.top =
+        (correctY * pieceHeight) + "px";
 
-        draggedPiece.dataset.locked =
-            "true";
+    draggedPiece.style.border =
+        "2px solid lime";
+
+    draggedPiece.dataset.locked =
+        "true";
 
             completedPieces++;
 
