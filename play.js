@@ -189,3 +189,52 @@ hintBtn.addEventListener("click", function(){
     }, 2000);
 
 });
+
+document.addEventListener("touchstart", function(e){
+
+    if(
+        e.target.classList.contains("piece") &&
+        e.target.dataset.locked !== "true"
+    ){
+
+        draggedPiece = e.target;
+
+        const rect =
+            draggedPiece.getBoundingClientRect();
+
+        offsetX =
+            e.touches[0].clientX - rect.left;
+
+        offsetY =
+            e.touches[0].clientY - rect.top;
+    }
+
+});
+
+document.addEventListener("touchmove", function(e){
+
+    if(!draggedPiece) return;
+
+    e.preventDefault();
+
+    draggedPiece.style.position = "absolute";
+
+    draggedPiece.style.left =
+        (e.touches[0].pageX - offsetX) + "px";
+
+    draggedPiece.style.top =
+        (e.touches[0].pageY - offsetY) + "px";
+
+    draggedPiece.style.zIndex = "1000";
+
+}, { passive:false });
+
+document.addEventListener("touchend", function(){
+
+    if(!draggedPiece) return;
+
+    document.dispatchEvent(
+        new MouseEvent("mouseup")
+    );
+
+});
