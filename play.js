@@ -20,51 +20,49 @@ image.onload = function(){
 
 function createPieces(){
 
-    const piecesDiv =
-        document.getElementById("pieces");
+const piecesDiv =
+    document.getElementById("pieces");
 
-    piecesDiv.innerHTML = "";
+piecesDiv.innerHTML = "";
 
-    const rows = 10;
-    const cols = 10;
+const rows = 10;
+const cols = 10;
 
-    const pieceWidth =
-        image.width / cols;
+const pieceWidth = image.width / cols;
+const pieceHeight = image.height / rows;
 
-    const pieceHeight =
-        image.height / rows;
+for(let y=0; y<rows; y++){
 
-    for(let y=0;y<rows;y++){
+    for(let x=0; x<cols; x++){
 
-        for(let x=0;x<cols;x++){
+        const piece =
+            document.createElement("canvas");
 
-            const piece =
-                document.createElement("canvas");
+        piece.width = pieceWidth;
+        piece.height = pieceHeight;
 
-            piece.width = pieceWidth;
-            piece.height = pieceHeight;
+        piece.className = "piece";
 
-            piece.className = "piece";
-
-            const pctx =
-                piece.getContext("2d");
+        const pctx =
+            piece.getContext("2d");
 
         pctx.drawImage(
-    image,
-    x * pieceWidth,
-    y * pieceHeight,
-    pieceWidth,
-    pieceHeight,
-    0,
-    0,
-    pieceWidth,
-    pieceHeight
-);
+            image,
+            x * pieceWidth,
+            y * pieceHeight,
+            pieceWidth,
+            pieceHeight,
+            0,
+            0,
+            pieceWidth,
+            pieceHeight
+        );
 
-const randomOrder = Math.random();
-piece.style.order = Math.floor(randomOrder * 1000);
+        piece.style.order =
+            Math.floor(Math.random() * 1000);
 
-piecesDiv.appendChild(piece);
-        }
+        piecesDiv.appendChild(piece);
     }
+}
+
 }
