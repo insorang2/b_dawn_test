@@ -140,7 +140,7 @@ document.addEventListener("mouseup", function(){
     const distanceY =
         Math.abs(currentY - targetY);
 
-    if(distanceX < 10 && distanceY < 10){
+    if(distanceX < 8 && distanceY < 8){
 
         draggedPiece.style.position =
             "absolute";
