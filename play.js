@@ -169,3 +169,23 @@ if(completedPieces === 100){
 
     draggedPiece = null;
 });
+
+const hintBtn =
+    document.getElementById("hintBtn");
+
+const hintImage =
+    document.getElementById("hintImage");
+
+hintBtn.addEventListener("click", function(){
+
+    if(hintImage.style.display === "none"){
+
+        hintImage.style.display = "block";
+
+    }else{
+
+        hintImage.style.display = "none";
+
+    }
+
+});
