@@ -59,7 +59,10 @@ let draggedPiece = null;
 
 document.addEventListener("mousedown", function(e){
 
-    if(e.target.classList.contains("piece")){
+    if(
+        e.target.classList.contains("piece") &&
+        e.target.dataset.locked !== "true"
+    ){
         draggedPiece = e.target;
     }
 
@@ -97,20 +100,33 @@ document.addEventListener("mouseup", function(){
 
     if(insideBoard){
 
-    draggedPiece.style.border =
-        "2px solid lime";
-
-    draggedPiece.style.left =
+    const targetX =
         boardRect.left +
-        parseInt(
-            draggedPiece.dataset.snapX
-        ) + "px";
+        parseInt(draggedPiece.dataset.snapX);
 
-    draggedPiece.style.top =
+    const targetY =
         boardRect.top +
-        parseInt(
-            draggedPiece.dataset.snapY
-        ) + "px";
+        parseInt(draggedPiece.dataset.snapY);
+
+    const distanceX =
+        Math.abs(pieceRect.left - targetX);
+
+    const distanceY =
+        Math.abs(pieceRect.top - targetY);
+
+    if(distanceX < 30 && distanceY < 30){
+
+        draggedPiece.style.border =
+            "2px solid lime";
+
+        draggedPiece.style.left =
+            targetX + "px";
+
+        draggedPiece.style.top =
+            targetY + "px";
+
+        draggedPiece.dataset.locked = "true";
+    }
 }
 
     draggedPiece = null;
