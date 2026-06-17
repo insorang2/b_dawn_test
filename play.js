@@ -1,24 +1,47 @@
-document.getElementById("forPuzzle").innerHTML = `
-<img
-    id="puzzleImage"
-    src="images/puzzle.png"
-    style="
-        width:90%;
-        max-width:900px;
-        margin-top:20px;
-        display:none;
-    "
->
-`;
+const piecesDiv = document.getElementById("pieces");
 
-document.getElementById("hintBtn").onclick = function(){
+const image = new Image();
+image.src = "images/puzzle.png";
 
-    const image =
-        document.getElementById("puzzleImage");
+image.onload = function () {
 
-    image.style.display = "block";
+    const rows = 5;
+    const cols = 5;
 
-    setTimeout(function(){
-        image.style.display = "none";
-    },3000);
+    const pieceWidth = image.width / cols;
+    const pieceHeight = image.height / rows;
+
+    for(let y = 0; y < rows; y++){
+
+        for(let x = 0; x < cols; x++){
+
+            const piece =
+                document.createElement("canvas");
+
+            piece.width = pieceWidth;
+            piece.height = pieceHeight;
+
+            piece.className = "piece";
+
+            const pctx =
+                piece.getContext("2d");
+
+            pctx.drawImage(
+                image,
+                x * pieceWidth,
+                y * pieceHeight,
+                pieceWidth,
+                pieceHeight,
+                0,
+                0,
+                pieceWidth,
+                pieceHeight
+            );
+
+            piece.style.order =
+                Math.floor(Math.random() * 100);
+
+            piecesDiv.appendChild(piece);
+        }
+    }
 };
