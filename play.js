@@ -100,35 +100,15 @@ document.addEventListener("mouseup", function(){
 
     if(insideBoard){
 
-    const targetX =
-    boardRect.left +
-    5 +
-    parseInt(draggedPiece.dataset.snapX);
+    draggedPiece.style.border =
+        "2px solid lime";
 
-    const targetY =
-    boardRect.top +
-    5 +
-    parseInt(draggedPiece.dataset.snapY);
+    board.appendChild(draggedPiece);
 
-    const distanceX =
-        Math.abs(pieceRect.left - targetX);
+    draggedPiece.style.position = "relative";
+    draggedPiece.style.left = "0px";
+    draggedPiece.style.top = "0px";
 
-    const distanceY =
-        Math.abs(pieceRect.top - targetY);
-
-    if(distanceX < 30 && distanceY < 30){
-
-        draggedPiece.style.border =
-            "2px solid lime";
-
-        draggedPiece.style.left =
-            targetX + "px";
-
-        draggedPiece.style.top =
-            targetY + "px";
-
-        draggedPiece.dataset.locked = "true";
-    }
 }
 
     draggedPiece = null;
