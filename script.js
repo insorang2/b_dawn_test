@@ -102,7 +102,7 @@ resultMember = member;
 }
 
 document.getElementById("app").innerHTML = ` <div style="position:relative; width:100%;"> <img
-     src="${resultMember}.png"
+     src="images/${resultMember}.png"
      alt="결과 이미지"
      style="width:100%; display:block;"
    >
@@ -174,7 +174,7 @@ return;
 const question = questions[currentQuestion];
 
 document.getElementById("app").innerHTML = ` <div style="position:relative; width:100%;"> <img
-     src="images/${question.image}"
+     src="${question.image}"
      alt="질문"
      style="width:100%; display:block;"
    >
