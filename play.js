@@ -72,6 +72,30 @@ document.addEventListener("mousemove", function(e){
 
 document.addEventListener("mouseup", function(){
 
+    if(!draggedPiece) return;
+
+    const board =
+        document.getElementById("board");
+
+    const boardRect =
+        board.getBoundingClientRect();
+
+    const pieceRect =
+        draggedPiece.getBoundingClientRect();
+
+    const insideBoard =
+        pieceRect.left > boardRect.left &&
+        pieceRect.right < boardRect.right &&
+        pieceRect.top > boardRect.top &&
+        pieceRect.bottom < boardRect.bottom;
+
+    if(insideBoard){
+
+        draggedPiece.style.border =
+            "2px solid lime";
+
+    }
+
     draggedPiece = null;
 
 });
